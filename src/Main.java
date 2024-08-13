@@ -26,7 +26,7 @@ public class Main extends PApplet {
 
     @Override
     public void draw() {
-//    background(100);
+    background(100);
         for (Agent agent : agents) {
             agent.display();
         }
