@@ -2,8 +2,10 @@ import processing.core.PApplet;
 
 
 public class Main extends PApplet {
-    Spark[] sparks;
-    Shape[] shapes;
+//    Spark[] sparks;
+//    Shape[] shapes;
+//    Shape shape;
+    Agent agent = new LargeAgent(this, 200, 200, 50);
     public static void main(String[] args) {
         PApplet.main(new String[]{"Main"});
     }
@@ -14,19 +16,24 @@ public class Main extends PApplet {
 
     @Override
     public void setup() {
-        sparks = Spark.createSparks(this, 100);
+//        sparks = Spark.createSparks(this, 100);
+//        shape = new Circle(this, 200, 200, 40);
+//        shapes =
+
     }
 
 
     @Override
     public void draw() {
     background(100);
-        for (Spark s : sparks){
-            s.display();
-        }
-
-        for (Spark s : sparks){
-            s.update();
-        }
+//        for (Spark s : sparks){
+//            s.display();
+//        }
+//
+//        for (Spark s : sparks){
+//            s.update();
+//        }
+        agent.display();
+        agent.update();
     }
 }
