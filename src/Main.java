@@ -17,9 +17,7 @@ public class Main extends PApplet {
     @Override
     public void setup() {
 //        sparks = Spark.createSparks(this, 100);
-//        shape = new Circle(this, 200, 200, 40);
-//        shapes =
-    populateAgents(10);
+    populateAgents(100);
     }
 
 
@@ -47,8 +45,14 @@ public class Main extends PApplet {
         for (int i = 0; i < numAgents; i++) {
             float randX = random((float) width /2,  width);
             float randY = random(height);
-            float randRadius = random(100, 200);
-            agents[i] = new LargeAgent(this, randX, randY, randRadius);
+            float randSize = random(50, 200);
+            agents[i] = selectedAgent(this, randX, randY, randSize);
         }
+    }
+
+    private Agent selectedAgent(PApplet p5,float x,float y,float size){
+        boolean randFloat = p5.random(1) > 0.5;
+
+        return randFloat ? new LargeAgent(this, x, y, size) : new SmallAgent(this, x, y, size);
     }
 }

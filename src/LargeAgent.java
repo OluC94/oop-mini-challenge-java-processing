@@ -19,12 +19,16 @@ public class LargeAgent implements Agent{
     @Override
     public void display() {
         this.radius += p5.random(-15.0f, 15.0f);
-        p5.fill(200);
+        p5.fill(175);
         p5.circle(x, y, radius);
     }
 
     @Override
     public void update() {
-        this.x--;
+        if (x < 0){
+            x = p5.width;
+        }
+
+        x--;
     }
 }
