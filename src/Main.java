@@ -19,13 +19,14 @@ public class Main extends PApplet {
 
     @Override
     public void setup() {
-        populateAgents(100);
+        agents = new ArrayList<Agent>();
+//        populateAgents(100);
     }
 
 
     @Override
     public void draw() {
-    background(100);
+//    background(100);
         for (Agent agent : agents) {
             agent.display();
         }
@@ -35,22 +36,23 @@ public class Main extends PApplet {
     }
 
     private void populateAgents(int numAgents) {
-        agents = new ArrayList<Agent>();
+
         for (int i = 0; i < numAgents; i++) {
-            float randX = random((float) width /2,  width);
+            float randX = random((float) width / 2, width);
             float randY = random(height);
             float randSize = random(50, 200);
             agents.add(generateAgent(this, randX, randY, randSize));
         }
     }
 
-    private Agent generateAgent(PApplet p5, float x, float y, float size){
+    private Agent generateAgent(PApplet p5, float x, float y, float size) {
         boolean randFloat = p5.random(1) > 0.5;
 
         return randFloat ? new LargeAgent(this, x, y, size) : new SmallAgent(this, x, y, size);
     }
 
-    public void mousePressed(){
+    public void mousePressed() {
         System.out.println("mouse pressed");
+        agents.add(new BikeAgent(this, this.mouseX, this.mouseY));
     }
 }
