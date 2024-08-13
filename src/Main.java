@@ -5,7 +5,7 @@ public class Main extends PApplet {
 //    Spark[] sparks;
 //    Shape[] shapes;
 //    Shape shape;
-    Agent agent = new LargeAgent(this, 200, 200, 50);
+    Agent[] agents;
     public static void main(String[] args) {
         PApplet.main(new String[]{"Main"});
     }
@@ -19,7 +19,7 @@ public class Main extends PApplet {
 //        sparks = Spark.createSparks(this, 100);
 //        shape = new Circle(this, 200, 200, 40);
 //        shapes =
-
+    populateAgents(10);
     }
 
 
@@ -33,7 +33,22 @@ public class Main extends PApplet {
 //        for (Spark s : sparks){
 //            s.update();
 //        }
-        agent.display();
-        agent.update();
+        for (Agent agent : agents) {
+            agent.display();
+        }
+        for (Agent agent : agents) {
+            agent.update();
+        }
+
+    }
+
+    private void populateAgents(int numAgents) {
+        agents = new Agent[numAgents];
+        for (int i = 0; i < numAgents; i++) {
+            float randX = random((float) width /2,  width);
+            float randY = random(height);
+            float randRadius = random(100, 200);
+            agents[i] = new LargeAgent(this, randX, randY, randRadius);
+        }
     }
 }
