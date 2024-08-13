@@ -3,6 +3,7 @@ import processing.core.PApplet;
 
 public class Main extends PApplet {
     Spark[] sparks;
+    Shape[] shapes;
     public static void main(String[] args) {
         PApplet.main(new String[]{"Main"});
     }
