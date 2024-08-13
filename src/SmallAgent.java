@@ -33,6 +33,7 @@ public class SmallAgent implements Agent {
         if (colour == 0){
             colour = 255;
         }
+
         colour--;
         this.x -= 2;
     }
